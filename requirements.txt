@@ -1,10 +1,9 @@
-# Core Web Frameworks
+# Web Framework
 streamlit
-Flask
 
 # Core NLP & Data Handling
-bertopic==0.16.0
-spacy==3.5.0
+bertopic
+spacy
 nltk
 pandas
 
@@ -12,3 +11,7 @@ pandas
 requests
 newspaper3k
 lxml[html_clean]
+
+# Required NLP Models
+# We specify the spaCy model here so Streamlit knows to get it.
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
