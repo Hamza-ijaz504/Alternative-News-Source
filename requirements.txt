@@ -1,23 +1,16 @@
 # Web Framework
-streamlit==1.33.0
+streamlit
 
 # Core NLP & Data Handling
-bertopic==0.16.0
-spacy==3.5.0
-nltk==3.8.1
-pandas==2.0.3
-
-# Key Scientific/ML libraries (pinning these is crucial)
-numpy==1.24.4
-scikit-learn==1.3.2
-umap-learn==0.5.5
-hdbscan==0.8.33
-torch==2.1.0
+bertopic
+spacy
+nltk
+pandas
 
 # Utility Libraries
 requests
 newspaper3k
 lxml[html_clean]
 
-# Required spaCy Model
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
+# Required spaCy Model (using a generic name that spacy understands)
+en_core_web_sm
