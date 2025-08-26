@@ -14,7 +14,7 @@ from umap import UMAP
 from collections import Counter
 
 
-def setup_nltk(custom_path="C:\\nltk_data"):
+def setup_nltk(custom_path="\\nltk_data"):
     if not os.path.exists(custom_path): os.makedirs(custom_path)
     if custom_path not in nltk.data.path: nltk.data.path.append(custom_path)
     resources = ['stopwords', 'punkt', 'punkt_tab', 'vader_lexicon']
