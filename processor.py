@@ -13,20 +13,38 @@ from sklearn.feature_extraction.text import CountVectorizer
 from umap import UMAP
 from collections import Counter
 
+# processor.py (ONLY CHANGE THIS ONE FUNCTION)
 
-def setup_nltk(custom_path="\\nltk_data"):
-    if not os.path.exists(custom_path): os.makedirs(custom_path)
-    if custom_path not in nltk.data.path: nltk.data.path.append(custom_path)
-    resources = ['stopwords', 'punkt', 'punkt_tab', 'vader_lexicon']
-    for resource in resources:
-        try:
-            if resource in ['stopwords']: path_check = f'corpora/{resource}'
-            elif resource in ['punkt', 'punkt_tab']: path_check = f'tokenizers/{resource}'
-            else: path_check = f'sentiment/{resource}.zip'
-            nltk.data.find(path_check)
-        except LookupError:
-            print(f"Downloading NLTK resource '{resource}'...")
-            nltk.download(resource, download_dir=custom_path)
+def setup_nltk():
+    """
+    Downloads all necessary NLTK data if not present.
+    This version is cloud-friendly and does not rely on a specific custom path.
+    """
+    try:
+        # Check for the main resources. If one fails, download everything.
+        nltk.data.find('tokenizers/punkt')
+        nltk.data.find('corpora/stopwords')
+        nltk.data.find('sentiment/vader_lexicon.zip')
+        print("NLTK resources found.")
+    except LookupError:
+        print("One or more NLTK resources not found. Downloading all...")
+        # 'all' is a convenient way to get everything needed for a deployment
+        nltk.download('all')
+
+        
+# def setup_nltk(custom_path="\\nltk_data"):
+#     if not os.path.exists(custom_path): os.makedirs(custom_path)
+#     if custom_path not in nltk.data.path: nltk.data.path.append(custom_path)
+#     resources = ['stopwords', 'punkt', 'punkt_tab', 'vader_lexicon']
+#     for resource in resources:
+#         try:
+#             if resource in ['stopwords']: path_check = f'corpora/{resource}'
+#             elif resource in ['punkt', 'punkt_tab']: path_check = f'tokenizers/{resource}'
+#             else: path_check = f'sentiment/{resource}.zip'
+#             nltk.data.find(path_check)
+#         except LookupError:
+#             print(f"Downloading NLTK resource '{resource}'...")
+#             nltk.download(resource, download_dir=custom_path)
 
 print("Loading spaCy model...")
 try:
