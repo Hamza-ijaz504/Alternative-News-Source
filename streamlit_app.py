@@ -1,9 +1,8 @@
 # streamlit_app.py
-
+import spacy
 import streamlit as st
-import processor # This is your main NLP engine
+import processor 
 
-# --- Page Configuration (makes the app look good) ---
 st.set_page_config(
     page_title="Alternative News Analyzer",
     page_icon="📰",
