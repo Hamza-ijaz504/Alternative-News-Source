@@ -1,3 +1,6 @@
+# Specify the Python version for Streamlit Cloud
+python-version==3.11
+
 # Web Framework
 streamlit
 
